@@ -41,7 +41,7 @@ void insertionSort(int *numbers, int size) {
   int partitionSize;
   int tbounds[8] = {0, 0, 0, 0, 0, 0, 0, 0};
 
-  gettimeofday (&tvalBefore, NULL);
+  //gettimeofday (&tvalBefore, NULL);
 
   #pragma omp parallel num_threads(4) private(tid, tcount, numberHolder)
   {
@@ -86,7 +86,7 @@ void insertionSort(int *numbers, int size) {
 
         }
 
-        printf("T%d :: I = %d\n", tid, i);
+        //printf("T%d :: I = %d\n", tid, i);
       }
 
       #pragma omp section
@@ -109,7 +109,7 @@ void insertionSort(int *numbers, int size) {
 
         }
 
-        printf("T%d :: I = %d\n", tid, i);
+        //printf("T%d :: I = %d\n", tid, i);
       }
 
       #pragma omp section
@@ -132,7 +132,7 @@ void insertionSort(int *numbers, int size) {
 
         }
 
-        printf("T%d :: I = %d\n", tid, i);
+        //printf("T%d :: I = %d\n", tid, i);
       }
 
       #pragma omp section
@@ -155,22 +155,23 @@ void insertionSort(int *numbers, int size) {
 
         }
 
-        printf("T%d :: I = %d\n", tid, i);
+        //printf("T%d :: I = %d\n", tid, i);
       }
     }
   }
 
-  gettimeofday (&tvalAfter, NULL);
-
+  //gettimeofday (&tvalAfter, NULL);
+  /*
   printf("Time in microseconds: %ld microseconds\n",
             ((tvalAfter.tv_sec - tvalBefore.tv_sec)*1000000L
            +tvalAfter.tv_usec) - tvalBefore.tv_usec
          );
+  */
 }
 
 int main() {
   // Max size 100,000
-  int SIZE = 500;
+  int SIZE = 100000;
   int *numbers = (int*)malloc(SIZE * sizeof(int));
 
 	loadNumbers("intarray_100k.txt", numbers, SIZE);

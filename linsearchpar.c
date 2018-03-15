@@ -26,7 +26,7 @@ void linearSearch(int *numbers, int size, int lookingFor) {
 	int i;
   int foundNumber = 0;
 
-  gettimeofday (&tvalBefore, NULL);
+  //gettimeofday (&tvalBefore, NULL);
   #pragma omp parallel private(tid) shared(foundNumber)
   {
     tid = omp_get_thread_num();
@@ -37,7 +37,7 @@ void linearSearch(int *numbers, int size, int lookingFor) {
   		if(lookingFor == numbers[i]) {
         // if found the number, stop all the threads
         foundNumber = 1;
-        printf("T%d :: Found Number :: I = %d\n", tid, i);
+        //printf("T%d :: Found Number :: I = %d\n", tid, i);
   		}
       if(foundNumber) {
         i = size;
@@ -46,12 +46,13 @@ void linearSearch(int *numbers, int size, int lookingFor) {
   	}
 
   }
-  gettimeofday (&tvalAfter, NULL);
-
+  //gettimeofday (&tvalAfter, NULL);
+  /*
   printf("Time in microseconds: %ld microseconds\n",
             ((tvalAfter.tv_sec - tvalBefore.tv_sec)*1000000L
            +tvalAfter.tv_usec) - tvalBefore.tv_usec
          );
+         */
 }
 
 int main() {

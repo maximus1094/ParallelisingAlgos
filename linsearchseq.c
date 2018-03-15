@@ -20,24 +20,27 @@ void loadNumbers(char *path, int *array, int size) {
 void linearSearch(int *numbers, int size, int lookingFor) {
   struct timeval tvalBefore, tvalAfter;
 
-  gettimeofday (&tvalBefore, NULL);
+  //gettimeofday (&tvalBefore, NULL);
 	// Linear Search
 	int i;
 	for (i = 0; i < size; i++) {
 		if(lookingFor == numbers[i]) {
-      printf("DEBUG :: Found Number :: I = %d\n", i);
+      //printf("DEBUG :: Found Number :: I = %d\n", i);
       i = size;
 		}
 	}
-	gettimeofday (&tvalAfter, NULL);
+	//gettimeofday (&tvalAfter, NULL);
 
+  /*
   printf("Time in microseconds: %ld microseconds\n",
             ((tvalAfter.tv_sec - tvalBefore.tv_sec)*1000000L
            +tvalAfter.tv_usec) - tvalBefore.tv_usec
          );
+         */
 }
 
 int main() {
+  // Max size 100,000 (.txt file contains that many elements)
 	int SIZE = 100000;
   // Test cases:
   // Number 1 is at the end of the array (length - 1)

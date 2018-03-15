@@ -34,7 +34,7 @@ void insertionSort(int *numbers, int size) {
   int j = 0;
   int numberHolder = 0;
 
-  gettimeofday (&tvalBefore, NULL);
+  //gettimeofday (&tvalBefore, NULL);
   while(i < size) {
 
     j = i;
@@ -49,12 +49,14 @@ void insertionSort(int *numbers, int size) {
 
     i++;
   }
-  gettimeofday (&tvalAfter, NULL);
+  //gettimeofday (&tvalAfter, NULL);
 
+/*
   printf("Time in microseconds: %ld microseconds\n",
             ((tvalAfter.tv_sec - tvalBefore.tv_sec)*1000000L
            +tvalAfter.tv_usec) - tvalBefore.tv_usec
          );
+         */
 }
 
 int main() {
@@ -63,6 +65,7 @@ int main() {
 
 	loadNumbers("intarray_100k.txt", numbers, SIZE);
   insertionSort(numbers, SIZE);
+  saveNumbersToFile("sortedarray.txt", numbers, SIZE);
 
   free(numbers);
   return 0;
